@@ -6,5 +6,6 @@ public class Main {
         var usages = new Usages();
         usages.callMemento();
         usages.callState();
+        usages.callIterator();
     }
 }

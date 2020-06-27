@@ -1,5 +1,7 @@
 package com.van_tigranyan;
 
+import com.van_tigranyan.iterator.BrowseHistory;
+import com.van_tigranyan.iterator.Iterator;
 import com.van_tigranyan.memento.Editor;
 import com.van_tigranyan.memento.History;
 import com.van_tigranyan.state.Canvas;
@@ -27,5 +29,18 @@ public class Usages {
         canvas.setCurrentTool(new SelectionTool());
         canvas.mouseDown();
         canvas.mouseUp();
+    }
+
+    public void callIterator() {
+        var history = new BrowseHistory();
+        history.push("a");
+        history.push("b");
+        history.push("d");
+
+        Iterator<String> iterator = history.createIterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.current());
+            iterator.next();
+        }
     }
 }
